@@ -1,0 +1,31 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<FluentDialog @ref="_dialog" @bind-Hidden="DialogHidden" Modal="true" @ondialogdismiss="OnDialogDismiss">
+
+    <FluentDialogHeader ShowDismiss="true">
+        Header
+    </FluentDialogHeader>
+    <FluentDialogBody>
+        This is the body
+    </FluentDialogBody>
+
+</FluentDialog>
+
+<FluentButton OnClick="ShowDialog" Appearance="Appearance.Accent">Show dialog</FluentButton>
+
+@code {
+    private FluentDialog? _dialog;
+    private bool DialogHidden { get; set; } = true;
+
+    private void OnDialogDismiss()
+    {
+        DialogHidden = true;
+    }
+
+    private void ShowDialog()
+    {
+        DialogHidden = false;
+    }
+}
